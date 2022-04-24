@@ -10,7 +10,7 @@ const Button = ({ id, idUser,navigate }) => {
     /// Button render with a link to the session
     return (
         <button onClick={handleClick} className="px-4 py-2 m-5 font-semibold text-gray-800 bg-blue-500 border border-gray-400 rounded shadow hover:bg-gray-100">
-            More
+            Plus
         </button>
     );
 }
