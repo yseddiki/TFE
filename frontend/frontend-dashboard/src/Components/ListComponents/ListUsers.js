@@ -101,7 +101,6 @@ const ListUsers = ({usersList,idEvaluation}) => {
                         'idUser',
                         'name',
                         'firstname',
-                        
                         {
                             name: 'Details',
                             formatter: (cell, row) => {
