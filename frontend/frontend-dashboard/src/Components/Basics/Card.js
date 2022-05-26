@@ -1,6 +1,3 @@
-import { PaperClipIcon } from '@heroicons/react/solid'
-import axios from 'axios'
-
 const Card = ({ item }) => {
     return (
 
@@ -12,8 +9,7 @@ const Card = ({ item }) => {
             <div className="border-t border-gray-200">
                 <dl>
                     {
-                        Object.keys(item).filter(i => i !== "average" ).map((element, idx) => {
-                            console.log(element);
+                        Object.keys(item).filter(i => i !== "data" ).map((element, idx) => {
                             if (idx % 2 === 0) {
                                 return (
                                     <div className="px-4 py-5 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

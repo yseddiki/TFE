@@ -11,6 +11,7 @@ import {
     Tooltip,
     Title,
 } from 'chart.js';
+import { useEffect, useState } from 'react';
 import { Chart } from 'react-chartjs-2';
 
 ChartJS.register(
@@ -23,23 +24,53 @@ ChartJS.register(
     Tooltip
 );
 
-const ChartIndexesEvents = () => {
+const ChartEvaluation = ({data}) => {
+    const [ArrayX, setArrayX] = useState([])
+    useEffect (() => {
+        let lenghtArray = data.length; 
+        let dataX = 0;
+        let tempArray = [] ;
+        data.forEach((element, index) => {
+            if(lenghtArray<element.length){
+                lenghtArray = element.length;
+            }
+        })
+        for (let index = 0; index < lenghtArray; index++) {
+            tempArray.push(dataX)
+            dataX++
+        }
+        setArrayX(tempArray)
+    },[data])
+    function rgbStringRandom() {
+        let r = Math.floor(Math.random() * 255);
+        let g = Math.floor(Math.random() * 255);
+        let b = Math.floor(Math.random() * 255);
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+    
+        
     return (<div className="gap-4">
-        <Chart
-            data={{
-                labels: ["1", "2" , "3" , "4","5", "6" , "7" , "8","9", "10" , "11" , "12","13", "14" , "15"],
-                datasets: [{
-                    type: 'line',
-                    label: 'average',
-                    borderColor: "rgb(255,0,0)",
-                    borderWidth: 2,
-                    fill: false,
-                    data:  ["65", "72" , "82" , "94","65", "72" , "82" , "94","65", "72" , "82" , "94","65", "72" , "82" ]
-                }]
-            }}
-        />
+       <Chart
+                data={{
+                    labels: ArrayX,
+                    datasets:
+                        [   ...data.map((element, index) => {
+                            return{
+                                
+                                    type: 'line',
+                                    label: (index+1),
+                                    borderColor: rgbStringRandom(),
+                                    borderWidth: 2,
+                                    pointRadius: 0,
+                                    fill: true,
+                                    data: element,
+                            }        
+                        })
+                        ]
+                }}
+            />
     </div>
     )
 }
 
-export default ChartIndexesEvents
+export default ChartEvaluation;

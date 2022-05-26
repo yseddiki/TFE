@@ -3,18 +3,21 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Header, NavBar, SubTitle, Title, Card } from '../Basics'
 import { ListUsers } from '../ListComponents';
-import EvaluationData from '../../MockData/Evaluation.json';
-import User from '../../MockData/User.json'
-import { ChartEvaluation } from '../ChartComponents';
+import userArray from '../../Data/ArrayUtilisateurs'
+import { ChartEvaluation, ChartUser } from '../ChartComponents';
 
 const UserDetails = () => {
     const params = useParams()
     const [user, setUser] = useState([]);
     const [Evaluation, setEvaluation] = useState({});
+
     useEffect(() => {
-        setUser(User)
-        setEvaluation(EvaluationData)
-    }, [])
+        setUser(userArray.find(user => user.idUser == params.idUser))
+        console.log(userArray)
+    }, [userArray])
+    useEffect(() => {
+        console.log(user)
+    }, [user])
 
     return (
         <div>
@@ -24,7 +27,12 @@ const UserDetails = () => {
                 <Card item={user} />
             </Title>
             <Title title={`Analyse : ${params.idUser}`}>
-                <ChartEvaluation/>
+                <SubTitle title={`Avant le traitement`}>
+                    <ChartUser data={user.basicData} />
+                </SubTitle>
+                <SubTitle title={`Aprés le traitement`}>
+                    <ChartUser data={user.data} />
+                </SubTitle>
             </Title>
             
         </div>
