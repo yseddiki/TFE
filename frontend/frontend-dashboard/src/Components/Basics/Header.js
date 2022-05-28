@@ -6,8 +6,9 @@ import { NavLink } from 'react-router-dom'
 
 
 const navigation = [
-    { name: 'Acceuil', href: '/dashboard', current: true },
+    { name: 'Acceuil', href: '/', current: true },
     { name: 'Evaluations', href: '/evaluations', current: false },
+    { name: 'Analyse', href: '/analyse', current: false }
 ]
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')

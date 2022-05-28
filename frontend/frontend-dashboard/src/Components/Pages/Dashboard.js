@@ -29,6 +29,17 @@ function lisserDataArray(array) {
             return Math.round((parseInt(array[index - 1])+parseInt(element)+ parseInt(array[index + 1])) / 3);
         }
     })
+    newArray.forEach((element, index) => {
+        if(element > 150)
+        {
+            newArray[index] = 150;
+        }
+        if (element < 45)
+        {
+            newArray[index] = 45;
+        }
+    })
+
     setArrayFinal(newArray);
     console.log("after moving average", newArray);
 

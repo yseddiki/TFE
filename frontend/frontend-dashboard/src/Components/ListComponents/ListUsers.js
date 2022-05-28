@@ -55,6 +55,7 @@ const ListUsers = ({usersList,idEvaluation}) => {
                         'idUser',
                         'year',
                         'date',
+                        'typeVideo',
                         {
                             name: 'Details',
                             formatter: (cell, row) => {
@@ -67,7 +68,7 @@ const ListUsers = ({usersList,idEvaluation}) => {
 
                     search={true}
                     pagination={{
-                        limit: 10,
+                        limit: 5,
                         enabled: true
                     }}
                 />

@@ -56,6 +56,7 @@ const ListEvaluation = () => {
                         'idEvaluation',
                         'name',
                         'Date',
+                        'typeVideo',
                         {
                             name: 'Details',
                             formatter: (cell, row) => {
