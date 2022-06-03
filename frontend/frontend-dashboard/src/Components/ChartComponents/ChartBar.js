@@ -30,21 +30,21 @@ const ChartBar = () => {
                     datasets:
                     [
                         {
-                        label: 'Partie 1 > Partie 2',
+                        label: 'moyenne de la premiere partie de la video  > moyenne de la seconde partie de la video',
                         type: 'bar',
                         data: [1,2,0],
                         backgroundColor: 'rgba(255, 99, 132, 0.5)',
                         },
                         {
-                        label: 'Partie 1 = Partie 2',
+                        label: 'moyenne de la premiere partie de la video  = moyenne de la seconde partie de la video',
                         type: 'bar',
-                        data: [1,1,0],
+                        data: [2,1,2],
                         backgroundColor: 'rgba(53, 162, 235, 0.5)',
                         },
                         {
-                        label: 'Partie 1 < Partie 2',
+                        label: 'moyenne de la premiere partie de la video  < moyenne de la seconde partie de la video',
                         type: 'bar',
-                        data: [5,0,3],
+                        data: [4,0,1],
                         backgroundColor: 'rgba(53, 12, 235, 0.5)',
                         }
                     ],
