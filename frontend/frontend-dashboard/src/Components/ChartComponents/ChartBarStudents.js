@@ -37,7 +37,7 @@ const ChartBarStudents = ({type}) => {
     function loadLabels() {
         let data = [];
         ArrayUtilisateurs.filter(element => element.typeVideo === type).map((element) => data.push("Utilisateur : "+element.idUser))
-        console.log(data)
+       
         setLabels(data)
     }
     function loadData() {
@@ -45,8 +45,6 @@ const ChartBarStudents = ({type}) => {
         let dataSeconde = [];
         ArrayUtilisateurs.filter(element => element.typeVideo === type).map((element) => dataFirst.push(getAverageData(element.data.slice(0, element.data.length/2)) ))
         ArrayUtilisateurs.filter(element => element.typeVideo === type).map((element) => dataSeconde.push(getAverageData(element.data.slice(element.data.length/2, element.data.length))))
-        console.log(dataFirst)
-        console.log(dataSeconde)
         setData1(dataFirst)
         setData2(dataSeconde)
     }
