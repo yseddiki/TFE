@@ -8,11 +8,12 @@ import {
     Legend,
     Tooltip,
     Title,
+    registerables as registerablesJS
 } from 'chart.js';
 import { useEffect, useState } from 'react';
 import { Chart } from 'react-chartjs-2';
 import ArrayUtilisateurs from "../../Data/ArrayUtilisateurs";
-
+ChartJS.register(...registerablesJS);
 ChartJS.register(
     LinearScale,
     CategoryScale,
